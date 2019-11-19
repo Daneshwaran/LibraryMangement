@@ -1,0 +1,15 @@
+<div class="main___container">
+
+  <h1> My Books</h1>
+  <button mat-button class="ret" (click)="return()">Return </button>
+  <div class="booksContainer">
+
+    <div *ngFor="let book of existingRentedBooks;let i=index" [class.label-active]="checked[i]" class="bookCard">
+      <img (click)="selectBooks($event,book,i)" src="{{book.volumeInfo.imageLinks.thumbnail}}" alt="">
+      <div class="title">{{book.volumeInfo.title}}</div>
+      <div class="author">{{book.volumeInfo.authors[0]}}</div>
+      <div class="date">{{book.volumeInfo.publishedDate}}</div>
+    </div>
+
+  </div>
+</div>

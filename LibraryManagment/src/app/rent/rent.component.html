@@ -1,0 +1,27 @@
+<p>Rent Books</p>
+<form [formGroup]="rent">
+    
+    <div class="example-container">
+       
+                <input matInput  placeholder="Membership No*:"formControlName="memberNo">
+          
+        
+
+        
+            
+                <input matInput   placeholder=" Duration*:"   formControlName="duration">
+            
+        
+            <div class="return_date">{{returnDate}}</div>
+        </div>
+    </form>
+<button mat-button type="submit" (click)="saveToFireStore()" [disabled]="!rent.valid">Rent </button>
+<mat-list #books>
+    <mat-list-item *ngFor="let book of selections">
+        {{book.volumeInfo.title}}
+    </mat-list-item>
+</mat-list>
+
+<p>
+    <!-- Options selected: {{selections.selectedOptions.selected.length }} -->
+</p>

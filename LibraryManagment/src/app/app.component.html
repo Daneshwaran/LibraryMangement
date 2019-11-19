@@ -1,0 +1,20 @@
+
+
+<div class="main_panel">
+  <div class="right_panel">
+      <a  target="" rel="noopener" href="#" (click)="changeView('Available Books')" >
+          <span>Browse Books</span></a>
+      <a  target="" rel="noopener" href="#" (click)="changeView('Return')" >
+          <span>My Books</span></a>
+
+  </div>
+  <div class="mid_panel">
+    <app-browse-books *ngIf="View == 'Available Books'" (View) ="refreshView($event)"  (selections) ="refreshSelection($event)"  ></app-browse-books>
+    <!-- <router-outlet ></router-outlet>  -->
+    <app-return *ngIf="View == 'Return'" (View) ="refreshView($event)" ></app-return>
+  </div>
+  <div class="left_panel">
+    <app-rent [selections]="selections" ></app-rent>
+  </div>
+</div>
+
