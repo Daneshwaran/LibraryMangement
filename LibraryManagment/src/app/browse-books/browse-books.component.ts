@@ -12,7 +12,7 @@ export class BrowseBooksComponent implements OnInit {
   constructor(private BooksService: BooksService) {
     
    }
-  books = {};
+  books ;
   selectedBooks = [];
   checked = [];
   searchField = new FormControl('');
@@ -22,16 +22,16 @@ export class BrowseBooksComponent implements OnInit {
   }
   getBooks(query) {
     this.BooksService.getBooks(query).subscribe(
-      (value) => this.books = value
+      (value) => this.books = value['items']
     )
-    this.checked = new Array(10);
+    this.checked = new Array();
     this.checked.fill(false);
   }
   selectBooks(event, book, i) {
     this.checked[i] = !this.checked[i]
     console.log(this.checked)
     
-    this.selectedBooks = this.books["items"].filter((data, index) => {
+    this.selectedBooks = this.books.filter((data, index) => {
       if (this.checked[index])
       return data
     })

@@ -14,7 +14,9 @@ import { AngularFirestoreModule, AngularFirestore} from '@angular/fire/firestore
 import { environment } from 'src/environments/environment';
 import { ReturnComponent } from './return/return.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     BrowserAnimationsModule,
+    MatInputModule,
     MatFormFieldModule,
+    MatButtonModule,
+    MatCardModule,
+    
     MatListModule
   ],
   entryComponents: [

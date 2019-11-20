@@ -11,7 +11,7 @@ export class BooksService {
   books:any;
   constructor(private http:HttpClient) { }
   public getBooks(query){
-    return this.http.get(this.ROOT_URL+ (query == undefined || query == '' ? 'JavaScript' : query)  )
+    return this.http.get(this.ROOT_URL+ (query == undefined || query == '' ? 'JavaScript' : query) +' &maxResults=40' )
   }
   public getBooksByID(ID){
     return this.http.get(this.SEARCH_ROOT_URL+ ID )

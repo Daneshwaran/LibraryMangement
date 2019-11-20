@@ -2,17 +2,20 @@
   <h1>Browse Books</h1>
   <div class="searchBox">
 
-    <input type="text" [formControl]="searchField">
-    <button mat-button (click)="getBooks()">Search </button>
+    <input MatInput type="text" [formControl]="searchField">
+    <button mat-raised-button (click)="getBooks(searchField)">Search </button>
   </div>
   <div class="booksContainer">
-
-    <div *ngFor="let book of books.items;let i=index" [class.label-active]="checked[i]" class="bookCard">
-      <img (click)="selectBooks($event,book,i)" src="{{book.volumeInfo.imageLinks.thumbnail}}" alt="">
-      <div class="title">{{book.volumeInfo.title}}</div>
-      <!-- <div class="author">{{book.volumeInfo.authors[0]}}</div> -->
-      <div class="date">{{book.volumeInfo.publishedDate}}</div>
-    </div>
-
+    <mat-card class="bookCard" *ngFor="let book of books; let i=index" [class.label-active]="checked[i]">
+      
+        <img (click)="selectBooks($event,book,i)"
+          src="{{book.volumeInfo.imageLinks == undefined ? 'No Thumbnail' : book.volumeInfo.imageLinks.thumbnail }}"
+          alt="">
+        <div class="title">{{book.volumeInfo.title}}</div>
+        <!-- <div class="author">{{book.volumeInfo.authors[0]}}</div> -->
+        <!-- 
+          <div class="date">{{book.volumeInfo.publishedDate}}</div> -->
+      
+    </mat-card>
   </div>
 </div>

@@ -1,8 +1,8 @@
 .main___container {
-
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
 
     .searchBox {
         margin: 20px;
@@ -10,20 +10,19 @@
 
     .booksContainer {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        grid-gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+        justify-items: center;
+        grid-gap: 15px;
         grid-auto-flow: row;
-
-        width: 900px;
-        height: 900px;
+        overflow-y: auto;
+        width: 90%;
+        height: 100%;
 
         .bookCard {
             background-color: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 0px;
             text-align: center;
             width: 135px;
-            border: 1px solid;
 
             &:hover {
                 cursor: pointer;
@@ -38,6 +37,12 @@
             &:hover {
                 background: rgba(169, 209, 241, 0.692);
 
+            }
+
+            .title {
+                text-align: left;
+                font-size: 13px;
+                margin-top: 5px;
             }
         }
     }
